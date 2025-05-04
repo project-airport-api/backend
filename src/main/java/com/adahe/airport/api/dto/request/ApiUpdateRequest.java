@@ -1,6 +1,7 @@
 package com.adahe.airport.api.dto.request;
 
 import com.adahe.airport.shared.enums.RequestMethods;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -39,6 +40,6 @@ public class ApiUpdateRequest {
     /**
      *
      */
-    @Size(max = 1)
+    @Max(1)
     private Integer enabled;
 }

@@ -1,15 +1,21 @@
 package com.adahe.airport.api.dto.request;
 
 import com.adahe.airport.shared.enums.RequestMethods;
-import jakarta.validation.constraints.Size;
+import com.adahe.airport.shared.request.PageRequest;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 @Data
-public class ApiListRequest {
+@EqualsAndHashCode(callSuper = true)
+public class ApiListRequest extends PageRequest implements Serializable {
     /**
      *
      */
-    @Size(min = 1)
+    @Min(1)
     private Long id;
 
     /**
@@ -45,6 +51,12 @@ public class ApiListRequest {
     /**
      *
      */
-    @Size(max = 1)
+    @Max(1)
     private Integer enabled;
+
+    /**
+     *
+     */
+    @Min(1)
+    private Long createdBy;
 }

@@ -1,0 +1,37 @@
+### Admin login
+# curl -X POST -H 'Content-Type: application/json' -d '{"username": "admin", "password": "123456"}' http://localhost:58080/api/login
+POST http://localhost:58080/api/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123456"
+}
+
+> {%
+    client.global.set("token", response.body.data.token)
+%}
+
+### Get API list
+GET http://localhost:58080/api/api
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "page": 1,
+  "size": 10
+}
+
+### Create API
+POST http://localhost:58080/api/api
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Create job",
+  "description": "Create an operations job",
+  "url": "/api/job",
+  "requestMethod": "POST",
+  "requestHeader": "Content-Type: application/json\nAuthorization: Bearer token",
+  "responseHeader": "Content-Type: application/json"
+}
