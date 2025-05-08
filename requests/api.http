@@ -13,14 +13,8 @@ Content-Type: application/json
 %}
 
 ### Get API list
-GET http://localhost:58080/api/api
+GET http://localhost:58080/api/api?page=1&size=10
 Authorization: Bearer {{token}}
-Content-Type: application/json
-
-{
-  "page": 1,
-  "size": 10
-}
 
 ### Create API
 POST http://localhost:58080/api/api

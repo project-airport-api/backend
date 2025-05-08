@@ -33,7 +33,7 @@ public class ApiController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    public ResponseEntity<StandardResponse<Page<Api>>> listApiByPage(@RequestBody @Valid ApiListRequest apiListRequest) {
+    public ResponseEntity<StandardResponse<Page<Api>>> listApiByPage(@Valid ApiListRequest apiListRequest) {
         long page = apiListRequest.getPage();
         long size = apiListRequest.getSize();
         String field = apiListRequest.getField();
